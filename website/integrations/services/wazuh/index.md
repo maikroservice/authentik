@@ -121,31 +121,31 @@ authc:
   basic_internal_auth_domain:
     description: "Authenticate via HTTP Basic + SAML against internal users database"
     http_enabled: true
-    transport_enabled: true b
+    transport_enabled: true
     order: 0
     http_authenticator:
-      type: basic 
+      type: basic
       challenge: false
     authentication_backend:
-      type: intern 
+      type: intern
   saml_auth_domain:
     http_enabled: true
     transport_enabled: false
     order: 1
     http_authenticator:
-      type: saml 
+      type: saml
       challenge: true
-      config: 
+      config:
         idp:
           metadata_file: "/etc/wazuh-indexer/opensearch-security/idp-metadata.xml"
-          entity_id: "wazuh-saml" 
+          entity_id: "wazuh-saml"
         sp:
           entity_id: "wazuh-saml"
         kibana_url: "https://<YOUR_WAZUH_IP_OR_HOSTNAME>"
         roles_key: Roles
         exchange_key: "MIIGIODCCA+ygAwIBAgITREIpdNn++usuy4Gq5g0W2/SQs..."
-     authentication_backend:
-       type: noop
+    authentication_backend:
+      type: noop
 ```
 
 ### Step 6 - securityadmin.sh
